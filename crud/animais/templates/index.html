@@ -1,0 +1,382 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90680653-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-90680653-2');
+    </script>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Twitter -->
+    <!-- <meta name="twitter:site" content="@bootstrapdash">
+    <meta name="twitter:creator" content="@bootstrapdash">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Azia">
+    <meta name="twitter:description" content="Responsive Bootstrap 4 Dashboard Template">
+    <meta name="twitter:image" content="https://www.bootstrapdash.com/azia/img/azia-social.png"> -->
+
+    <!-- Facebook -->
+    <!-- <meta property="og:url" content="https://www.bootstrapdash.com/azia">
+    <meta property="og:title" content="Azia">
+    <meta property="og:description" content="Responsive Bootstrap 4 Dashboard Template">
+
+    <meta property="og:image" content="https://www.bootstrapdash.com/azia/img/azia-social.png">
+    <meta property="og:image:secure_url" content="https://www.bootstrapdash.com/azia/img/azia-social.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600"> -->
+
+    <!-- Meta -->
+    <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
+    <meta name="author" content="BootstrapDash">
+
+    <title>Inicial</title>
+
+   <!-- vendor css -->
+   <link href="{% static 'lib/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+   <link href="{% static 'lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+   <link href="{% static 'lib/typicons.font/typicons.css' %}" rel="stylesheet">
+   <link href="{% static 'lib/flag-icon-css/css/flag-icon.min.css' %}" rel="stylesheet">
+
+   <!-- azia CSS -->
+   <link rel="stylesheet" href="{% static 'css/azia.css' %}">
+
+  </head>
+  <body>
+
+    <div class="az-header">
+      <div class="container">
+        <div class="az-header-left">
+          <a href="{% url 'index' %}" class="nav-item"><i class = "fa fa-home"></i></a>
+          <a href="" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
+        </div><!-- az-header-left -->
+        <div class="az-header-menu">
+          <div class="az-header-menu-header">
+            <a href="{% url 'index' %}" class="az-logo"><span></span> LOGO</a>
+            <a href="" class="close">&times;</a>
+          </div><!-- az-header-menu-header -->
+          <ul class="nav">
+            <li class="nav-item">
+              <a href="{% url 'list_denuncias' %}" class="nav-link"><i class="typcn typcn-warning-outline"></i> Denúncia</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'list_resgates' %}" class="nav-link"><i class="typcn typcn-messages"></i> Resgate</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'sobre' %}" class="nav-link"><i class="typcn typcn-document"></i> Sobre</a>
+            </li>
+          </ul>
+        </div><!-- az-header-menu -->
+        <div class="az-header-right">
+          {% if request.user.is_authenticated %}
+          <a href="{% url 'logout_view' %}" class="btn btn-primary rounded-lg"><i class="typcn"></i> SAIR</a>
+          {% else %}
+          <a href="{% url 'cadastro' %}" class="btn tx-primary mg-r-5"><i class="typcn"></i> Cadastrar-se</a>
+          <a href="{% url 'login' %}" class="btn btn-primary rounded-lg"><i class="typcn"></i> ENTRAR</a>
+          {% endif %}
+        </div><!-- az-header-right -->
+      </div><!-- container -->
+    </div><!-- az-header -->
+    
+    <div class="banner">
+      <img src="{% static 'img/banner2.svg' %}">
+    </div>
+    <div class="row-exp row-gt row-yh mg-b-20">
+      <div class="card-index rounded-lg pd-50 bg-light mg-r-5">
+        <h4>DENÚNCIAS:</h4>
+        <h6>As denúncias feitas aqui são enviadas para a Polícia Ambiental e o órgão do IBAMA</h6>
+        <p class=""><b>124</b> Denúncias realizadas</p>
+        <p><b>117</b> Denúncias Atendidas</p>
+      </div>
+      <div class="card-index rounded-lg pd-50 bg-light">
+        <h4>RESGATES:</h4>
+        <h6>Os resgates solicitados aqui são enviados para a Polícia Ambiental e o órgão do IBAMA</h6>
+        <p><b>93</b> Resgates Solicitados</p>
+        <p><b>68</b> Resgates Atendidos</p>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row-exp row-gt row-yh gap-card">
+      <div class="card-index rounded-lg pd-30 bd card-info">
+        <h4 class="h4-texto">ANIMAL SILVESTRE NÃO É PET!:</h4>
+        <p>O comércio de animais silvestres como bichos de estimação é uma das maiores ameaças para a fauna em todo o mundo. E no Brasil não é diferente. 
+          Não importa se o animal silvestre nasceu em criadouro legalizado ou se foi capturado na natureza e traficado. Em cativeiro, ele sofre. Dessa forma, divulgar os problemas da criação de animais silvestres como pets é importante para que as pessoas reflitam no momento de decidir pelo tipo de bicho de estimação que desejam criar.
+          </p>
+      </div>
+      <div class="card-index rounded-lg pd-30 bd card-info">
+        <h4 class="h4-texto">DADOS:</h4>
+        <p>Os dados são alarmantes:</p>
+        <li>37.937.619 aves são criadas em cativeiro no Brasil.</li>
+        <li>573 é o número de criadouros comerciais e lojas que vendem animais silvestres como bichos de estimação no Brasil.</li>
+        <li>406.790 é o número de criadores amadores legalizados de Passeriformes (passarinhos e aves canoras) no Brasil.</li>
+        <li>3.265.973 passarinhos vivem nas gaiolas dos criadores amadores legalizados.</li>
+        <li>45 centros de triagem e de reabilitação de animais silvestres (Cetas e Cras) funcionam no Brasil</li>
+        <li>1% do orçamento destinado à fiscalização pelo Ibama foi aplicado em ações voltadas à fauna silvestre entre 2010 e 2015</li>
+      </div>
+      <div class="card-index rounded-lg pd-40 bd card-info">
+        <h4 class="h4-texto">DISTINÇÃO:</h4>
+        <p>Animal Doméstico: Espécies domésticas foram selecionadas pelos humanos, privilegiando características específicas, ao longo de muitas gerações, fazendo com que se diferenciam das espécies que deram origem a elas, tanto em sua aparência (fenótipo) quanto nos genes (genótipo).</p>
+        <p>Animal Silvestre:Espécies silvestres possuem funções ecológicas no ambiente natural que as domésticas não possuem. Além disso, é possível manter indivíduos de espécies silvestres em ambiente doméstico, contudo, apesar de serem indivíduos amansados, continuam a ser de espécies silvestres.</p>
+      </div>
+    </div>
+
+    <div class="row-exp row-gt row-yh gap-card bg-primary">
+      
+      <div class="card-index rounded-lg pd-30 card-info">
+        <h4 class="h4-texto">BEM-ESTAR COMPROMETIDO</h4>
+        <p>Os animais domésticos, como cães e gatos, passaram durante milhares de anos por um processo de seleção promovido pelo homem para que vivessem sem medo ou qualquer sofrimento com humanos. A domesticação é, portanto, um meio pelo qual animais selecionados da natureza se adaptam a um habitat criado para eles por seres humanos.</p>
+        <p>Já os animais silvestres não passaram por esse processo. Ou seja, mesmo os nascidos em cativeiro ainda mantêm as mesmas necessidades e comportamentos de um animal selvagem, o que os tornam inadequados para serem mantidos em um ambiente doméstico.</p>
+        <p>Sejam capturados da natureza ou nascidos em cativeiro, os animais silvestres experimentam sofrimento em cada uma das etapas da sua comercialização, incluindo captura na natureza ou reprodução, manipulação, transporte e venda. Sem contar com uma vida inteira de cativeiro em uma residência humana ou em gaiolas dentro de criadouros.</p>
+      </div>
+      <div class="card-index rounded-lg pd-30 card-info">
+        <h4 class="h4-texto">SAÚDE EM RISCO</h4>
+        <p>Nos últimos 30 anos, cerca de 75% das doenças infecciosas humanas emergentes (novas ou que aumentaram a incidência) tiveram sua origem em zoonoses. As zoonoses são enfermidades ou infecções naturalmente transmissíveis entre os animais vertebrados e o homem. Criar fauna silvestre como bichos de estimação aumenta bastante o risco do contágio humano. E no Brasil, onde a maioria desses pets são capturados ilegalmente na natureza, esse risco pode ser ainda maior.</p>
+        <p>Estamos tratando de doenças como a raiva humana, o botulismo, a dengue, a doença de chagas, a esquistossomose, a febre maculosa, a malária, a tuberculose, a salmonelose e uma infinidade de outras. Um dos principais fatores que auxilia a transmissão de zoonoses é o estresse imposto aos animais, seja no momento da captura ou em cativeiro. Há uma queda na imunidade, facilitando o aparecimento de doenças e a transmissão de micro-organismos.</p>
+      </div>
+    </div>
+
+    <div class="row-exp row-gt row-yh">
+      <div class="card-index rounded-lg pd-30 card-info">
+        <img src="{% static 'img/banner3.svg' %}" alt="">
+      </div>
+      <div class="card-index rounded-lg pd-30 card-info card-info-2">
+        <h4 class="h4-texto">O QUE VOCÊ PODE FAZER</h4>
+        <p>Estar bem informado para ajudar a acabar com o sofrimento de animais silvestres criados em cativeiro é essencial. Reunimos então algumas dicas importantes para auxiliar na luta pelo bem-estar dos animais, a conservação dos ecossistemas e a redução dos riscos à saúde pública: </p>
+        <li>Não compre animais silvestres. Criá-los como bichos de estimação é cruel e gera problemas para o equilíbrio dos ecossistemas, para os cofres públicos e a saúde da população</li>
+        <li>Se você tem um animal silvestre legalizado, cuide bem dele. Leve-o a consultas regulares com um veterinário especializado e se informe sobre as necessidades da espécie.</li>
+        <li>Se você tem um animal silvestre ilegal, que foi retirado da natureza, entre em contato com a Polícia Militar Ambiental ou o Ibama de seu estado. Está na lei29: a entrega voluntária faz com que você não sofra qualquer punição legal (processo criminal e multa). </li>
+        <li>Nunca solte ou abandone o animal silvestre que você não deseja mais criar. Essa atitude coloca em risco a vida do animal e pode gerar sérios problemas para o equilíbrio dos ecossistemas, para a fauna em vida livre da região e para a saúde pública. </li>
+        <li>Denuncie a venda ilegal de animais silvestres. Pergunte às autoridades policiais de seu estado qual é a via segura de fazer isso ou utilize os canais do Ibama. </li>
+        <li>Se você decidir ter em casa um bichinho de estimação, prefira adotar um animal doméstico, como cães e gatos. </li>
+        <li>Compartilhe essas mensagens de conscientização com familiares e amigos. Ajude a mudar a ideia de que animal silvestre pode ser criado como bicho de estimação. Tenha a certeza de que sua participação é fundamenta! </li>
+        <li>Quer observar animais silvestres de perto? Visite parques nacionais e parques estaduais. Muitos deles têm estrutura e atividades para ver animais na natureza e aprender sobre a fauna local.</li>
+      </div>
+    </div>
+    <div class="banner">
+      <img src="{% static 'img/banner.svg' %}">
+    </div>
+    <!-- content -->
+
+    <div class="az-footer ht-40">
+      <div class="container ht-100p pd-t-0-f">
+        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © IFRN 2022</span>
+      </div>
+    </div><!-- az-footer -->
+
+
+    <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'lib/ionicons/ionicons.js' %}"></script>
+    <script src="{% static 'lib/jquery.flot/jquery.flot.js' %}"></script>
+    <script src="{% static 'lib/jquery.flot/jquery.flot.resize.js' %}"></script>
+    <script src="{% static 'lib/chart.js/Chart.bundle.min.js' %}"></script>
+    <script src="{% static 'lib/peity/jquery.peity.min.js' %}"></script>
+
+    <script src="{% static 'js/azia.js' %}"></script>
+    <script src="{% static 'js/chart.flot.sampledata.js' %}"></script>
+    <script src="{% static 'js/dashboard.sampledata.js' %}"></script>
+    <script src="{% static 'js/jquery.cookie.js' %}" type="text/javascript"></script>
+    <script>
+      $(function(){
+        'use strict'
+
+    		var plot = $.plot('#flotChart', [{
+          data: flotSampleData3,
+          color: '#007bff',
+          lines: {
+            fillColor: { colors: [{ opacity: 0 }, { opacity: 0.2 }]}
+          }
+        },{
+          data: flotSampleData4,
+          color: '#560bd0',
+          lines: {
+            fillColor: { colors: [{ opacity: 0 }, { opacity: 0.2 }]}
+          }
+        }], {
+    			series: {
+    				shadowSize: 0,
+            lines: {
+              show: true,
+              lineWidth: 2,
+              fill: true
+            }
+    			},
+          grid: {
+            borderWidth: 0,
+            labelMargin: 8
+          },
+    			yaxis: {
+            show: true,
+    				min: 0,
+    				max: 100,
+            ticks: [[0,''],[20,'20K'],[40,'40K'],[60,'60K'],[80,'80K']],
+            tickColor: '#eee'
+    			},
+    			xaxis: {
+            show: true,
+            color: '#fff',
+            ticks: [[25,'OCT 21'],[75,'OCT 22'],[100,'OCT 23'],[125,'OCT 24']],
+          }
+        });
+
+        $.plot('#flotChart1', [{
+          data: dashData2,
+          color: '#00cccc'
+        }], {
+    			series: {
+    				shadowSize: 0,
+            lines: {
+              show: true,
+              lineWidth: 2,
+              fill: true,
+              fillColor: { colors: [ { opacity: 0.2 }, { opacity: 0.2 } ] }
+            }
+    			},
+          grid: {
+            borderWidth: 0,
+            labelMargin: 0
+          },
+    			yaxis: {
+            show: false,
+            min: 0,
+            max: 35
+          },
+    			xaxis: {
+            show: false,
+            max: 50
+          }
+    		});
+
+        $.plot('#flotChart2', [{
+          data: dashData2,
+          color: '#007bff'
+        }], {
+    			series: {
+    				shadowSize: 0,
+            bars: {
+              show: true,
+              lineWidth: 0,
+              fill: 1,
+              barWidth: .5
+            }
+    			},
+          grid: {
+            borderWidth: 0,
+            labelMargin: 0
+          },
+    			yaxis: {
+            show: false,
+            min: 0,
+            max: 35
+          },
+    			xaxis: {
+            show: false,
+            max: 20
+          }
+    		});
+
+
+        //-------------------------------------------------------------//
+
+
+        // Line chart
+        $('.peity-line').peity('line');
+
+        // Bar charts
+        $('.peity-bar').peity('bar');
+
+        // Bar charts
+        $('.peity-donut').peity('donut');
+
+        var ctx5 = document.getElementById('chartBar5').getContext('2d');
+        new Chart(ctx5, {
+          type: 'bar',
+          data: {
+            labels: [0,1,2,3,4,5,6,7],
+            datasets: [{
+              data: [2, 4, 10, 20, 45, 40, 35, 18],
+              backgroundColor: '#560bd0'
+            }, {
+              data: [3, 6, 15, 35, 50, 45, 35, 25],
+              backgroundColor: '#cad0e8'
+            }]
+          },
+          options: {
+            maintainAspectRatio: false,
+            tooltips: {
+              enabled: false
+            },
+            legend: {
+              display: false,
+                labels: {
+                  display: false
+                }
+            },
+            scales: {
+              yAxes: [{
+                display: false,
+                ticks: {
+                  beginAtZero:true,
+                  fontSize: 11,
+                  max: 80
+                }
+              }],
+              xAxes: [{
+                barPercentage: 0.6,
+                gridLines: {
+                  color: 'rgba(0,0,0,0.08)'
+                },
+                ticks: {
+                  beginAtZero:true,
+                  fontSize: 11,
+                  display: false
+                }
+              }]
+            }
+          }
+        });
+
+        // Donut Chart
+        var datapie = {
+          labels: ['Search', 'Email', 'Referral', 'Social', 'Other'],
+          datasets: [{
+            data: [25,20,30,15,10],
+            backgroundColor: ['#6f42c1', '#007bff','#17a2b8','#00cccc','#adb2bd']
+          }]
+        };
+
+        var optionpie = {
+          maintainAspectRatio: false,
+          responsive: true,
+          legend: {
+            display: false,
+          },
+          animation: {
+            animateScale: true,
+            animateRotate: true
+          }
+        };
+
+        // For a doughnut chart
+        var ctxpie= document.getElementById('chartDonut');
+        var myPieChart6 = new Chart(ctxpie, {
+          type: 'doughnut',
+          data: datapie,
+          options: optionpie
+        });
+
+      });
+    </script>
+  </body>
+</html>
